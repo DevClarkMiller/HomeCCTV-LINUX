@@ -8,6 +8,8 @@ const { exec } = require('child_process');  //For executing commands
 const os = require('os');
 const config = require('./cam-config.json');
 
+const FSWebcam = NodeWebcam.FSWebcam;
+
 //Keeps track of numer of consecutive errors. If beyond a certain number, will restart camera
 let errorCount = 0;
 
@@ -51,7 +53,7 @@ var opts = {
     callbackReturn: "base64"
 };
 
-var Webcam = NodeWebcam.create( opts );
+var Webcam = new FSWebcam( opts );
 
 //Captures an image from camera every second and sends the data over to the site!
 setInterval(async () => {
