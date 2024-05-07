@@ -63,8 +63,8 @@ setInterval(async () => {
       }*/
       //const imagePath = path.join(__dirname, 'images', 'test_picture');
       if (err) {
-        console.log(errorCount);
-        //console.error(err);
+        //console.log(errorCount);
+        console.error(err);
         errorCount++;
         return;
       }
