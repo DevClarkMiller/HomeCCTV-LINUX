@@ -1,12 +1,14 @@
 const path = require('path');
 const express = require("express");
-const FSWebcam = require('node-webcam/webcams/FSWebcam');
+const NodeWebcam = require('node-webcam');
 const app = express();
 const server = require('http').Server(app);
 const io = require('socket.io')(server);
 const { exec } = require('child_process');  //For executing commands
 const os = require('os');
 const config = require('./cam-config.json');
+
+const FSWebcam = NodeWebcam.FSWebcam;
 
 //Keeps track of numer of consecutive errors. If beyond a certain number, will restart camera
 let errorCount = 0;
