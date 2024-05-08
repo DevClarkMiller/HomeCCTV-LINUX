@@ -53,7 +53,7 @@ var opts = {
     callbackReturn: "base64"
 };
 
-var Webcam = FSWebCam.create(opts);
+var Webcam = FSWebcam.create(opts);
 console.log(Webcam);
 
 //Captures an image from camera every second and sends the data over to the site!
