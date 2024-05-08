@@ -10,6 +10,8 @@ const config = require('./cam-config.json');
 
 const FSWebcam = NodeWebcam.FSWebcam;
 
+console.log(FSWebcam);
+
 //Keeps track of numer of consecutive errors. If beyond a certain number, will restart camera
 let errorCount = 0;
 
