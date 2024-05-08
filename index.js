@@ -1,16 +1,12 @@
 const path = require('path');
 const express = require("express");
-const NodeWebcam = require('node-webcam');
+const FSWebcam = require('node-webcam/webcams/FSWebcam');
 const app = express();
 const server = require('http').Server(app);
 const io = require('socket.io')(server);
 const { exec } = require('child_process');  //For executing commands
 const os = require('os');
 const config = require('./cam-config.json');
-
-const FSWebcam = NodeWebcam.FSWebcam;
-
-
 
 //Keeps track of numer of consecutive errors. If beyond a certain number, will restart camera
 let errorCount = 0;
@@ -20,7 +16,7 @@ let errorCount = 0;
 //const enableCam = `pnputil /enable-device "${config.CAM_SESSION_ID}"`; //Command to enable the cam
 //const disableCam = `pnputil /disable-device "${config.CAM_SESSION_ID}"`; //Command to disable the cam
 
-app.use('/images', express.static(path.join(__dirname, 'images')));
+//app.use('/images', express.static(path.join(__dirname, 'images')));
 
 /*
 const executeCommand = async (command) =>{
@@ -55,7 +51,7 @@ var opts = {
     callbackReturn: "base64"
 };
 
-var Webcam = new FSWebcam( opts );
+var Webcam = FSWebCam.create(opts);
 console.log(Webcam);
 
 //Captures an image from camera every second and sends the data over to the site!
