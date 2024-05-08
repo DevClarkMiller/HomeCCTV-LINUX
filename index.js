@@ -56,7 +56,7 @@ var opts = {
 };
 
 var Webcam = new FSWebcam( opts );
-console.log(WebCam);
+console.log(Webcam);
 
 //Captures an image from camera every second and sends the data over to the site!
 setInterval(async () => {
